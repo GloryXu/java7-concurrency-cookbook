@@ -1,7 +1,5 @@
 package chapter02.seven;
 
-import chapter02.seven.PrintQueue;
-
 public class Job implements Runnable {
     private PrintQueue printQueue;
 

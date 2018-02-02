@@ -7,12 +7,13 @@ public class PrintQueue {
     /**
      * 调用lock()和unlock()时，等待时间最长的先执行，公平模式
      */
-    private Lock queueLock = new ReentrantLock(true);
+//    private Lock queueLock = new ReentrantLock(true);
+    private Lock queueLock = new ReentrantLock(false);
 
     public void printJob(Object document) {
         queueLock.lock();
         try {
-            Long duration = (long) (Math.random() * 10000);
+            long duration = (long) (Math.random() * 10000);
             System.out.println(Thread.currentThread().getName() + ": PrintQueue : Printing a Job during " + (duration/1000) + " seconds");
             Thread.sleep(duration);
         } catch (InterruptedException e) {
@@ -22,7 +23,7 @@ public class PrintQueue {
         }
         queueLock.lock();
         try {
-            Long duration = (long) (Math.random() * 10000);
+            long duration = (long) (Math.random() * 10000);
             System.out.println(Thread.currentThread().getName() + ": PrintQueue: Printing a Job during " + (duration/1000) + " seconds");
             Thread.sleep(duration);
         } catch (InterruptedException e) {
