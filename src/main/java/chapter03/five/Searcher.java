@@ -26,7 +26,7 @@ public class Searcher implements Runnable {
         int counter;
         System.out.printf("%s:Processing lines from %d to %d.\n", Thread.currentThread().getName(), firstRow, lastRow);
         for(int i = firstRow;i<lastRow;i++ ){
-            int row[] = mock.getRow(i);
+            int[] row = mock.getRow(i);
             counter = 0;
             for(int j = 0;j<row.length;j++) {
                 if(row[j] == number){

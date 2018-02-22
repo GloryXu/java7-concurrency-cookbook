@@ -18,7 +18,7 @@ public class MatrixMock {
             }
         }
 
-        System.out.printf("Mock: There are %d ocurrences of number in generated data.\n", counter, number);
+        System.out.printf("Mock: There are %d ocurrences of number %d in generated data.\n", counter, number);
     }
 
     public int[] getRow(int row) {

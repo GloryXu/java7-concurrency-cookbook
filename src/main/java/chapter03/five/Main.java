@@ -11,12 +11,13 @@ public class Main  {
         final int LINES_PARTICIPANT = 2000;
 
         MatrixMock mock = new MatrixMock(ROWS, NUMBERS, SEARCH);
-        Result result = new Result(ROWS);
+        Result result = new Result(ROWS);// 创建一个大小为ROWS的数组data
         Grouper grouper = new Grouper(result);
         CyclicBarrier barrier = new CyclicBarrier(PARTICIPANTS, grouper);
         Searcher[] searchers = new Searcher[PARTICIPANTS];
         for (int i = 0;i<PARTICIPANTS;i++) {
-            searchers[i] = new Searcher(i * LINES_PARTICIPANT, (i * LINES_PARTICIPANT) + LINES_PARTICIPANT, mock, result, 5, barrier);
+            searchers[i] = new Searcher(i * LINES_PARTICIPANT,
+                    (i * LINES_PARTICIPANT) + LINES_PARTICIPANT, mock, result, 5, barrier);
             Thread thread = new Thread(searchers[i]);
             thread.start();
         }
