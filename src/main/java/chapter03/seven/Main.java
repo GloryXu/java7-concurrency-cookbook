@@ -6,6 +6,7 @@ public class Main {
         Student[] students = new Student[5];
         for(int i = 0;i<students.length;i++) {
             students[i] = new Student(phaser);
+            // N个线程干事儿就resister N次
             phaser.register();
         }
         Thread[] threads = new Thread[students.length];
@@ -16,6 +17,7 @@ public class Main {
 
         for(int i = 0;i<threads.length;i++) {
             try {
+                // 等待所有线程都运行结束
                 threads[i].join();
             } catch (InterruptedException e) {
                 e.printStackTrace();
