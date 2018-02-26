@@ -8,6 +8,8 @@ public class Server {
 
     public Server() {
         executor = (ThreadPoolExecutor) Executors.newCachedThreadPool();
+//        executor = (ThreadPoolExecutor) Executors.newSingleThreadExecutor();
+//        executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(5);
     }
 
     public void executeTask(Task task) {
